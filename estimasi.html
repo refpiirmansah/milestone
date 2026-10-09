@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>milestones</title>
+  </head>
+  <body class="bg-light d-flex flex-column min-vh-100">
+    <nav class="navbar">
+      <div class="container navbar-container">
+        <a href="home.html" class="brand">
+          <img src="./asset/logo.png" alt="Logo" width="50" height="50" />
+          <span>BIRO JASA STNK XAVIER</span>
+        </a>
+
+        <ul class="menu">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="service.html">Service</a></li>
+          <li><a href="about.html">Tentang Kami</a></li>
+          <li><a href="gallery.html">Galeri</a></li>
+          <li><a href="kontak.html">Kontak Kami</a></li>
+          <li><a href="estimasi.html">Cek Estimasi</a></li>
+          <li><a href="login.html">Login / register</a></li>
+        </ul>
+
+        <div class="tombol">&#9776;</div>
+      </div>
+    </nav>
+    <div id="page-features" class="page-content">
+      <section class="container py-5">
+        <div class="text-center mb-5">
+          <span class="text-primary fw-bold text-uppercase"
+            >Perhitungan Estimasi Biaya</span
+          >
+          <h2 class="fw-bold mt-1">Kalkulator Estimasi Biaya</h2>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          <!-- Kalkulator Estimasi-->
+          <div class="col-lg-6">
+            <div class="bg-white p-4 rounded-4 shadow-sm h-100">
+              <h4 class="fw-bold mb-3">
+                <i class="fa-solid fa-calculator text-primary me-2"></i
+                >Kalkulator Estimasi Biaya
+              </h4>
+              <p class="text-muted small mb-4">
+                Hitung perkiraan biaya perpanjangan atau balik nama kendaraan
+                Anda secara instan.
+              </p>
+
+              <div class="mb-3">
+                <label class="form-label small fw-semibold"
+                  >Jenis Kendaraan</label
+                >
+                <select class="form-select" id="calc-type">
+                  <option value="motor">Sepeda Motor</option>
+                  <option value="mobil">Mobil Penumpang</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label small fw-semibold"
+                  >Jenis Layanan</label
+                >
+                <select class="form-select" id="calc-service">
+                  <option value="pajak1">Pajak Tahunan (1 Tahun)</option>
+                  <option value="pajak5">Ganti Plat (5 Tahun)</option>
+                  <option value="baliknama">Balik Nama (BBNKB)</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label small fw-semibold"
+                  >Pajak Pokok di STNK (PKB) Rp</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="calc-pkb"
+                  placeholder="Contoh: 350000"
+                  value="300000"
+                />
+              </div>
+
+              <button
+                onclick="calculateTax()"
+                class="btn btn-primary w-100 rounded-pill py-2 fw-semibold mb-4"
+              >
+                Hitung Estimasi
+              </button>
+
+              <!-- Calculation Result Box -->
+              <div class="p-3 bg-light rounded-3 border" id="calc-result">
+                <small class="text-muted d-block mb-1"
+                  >Total Estimasi Biaya:</small
+                >
+                <h3 class="fw-bold text-primary mb-0" id="calc-total">Rp 0</h3>
+                <small class="text-muted mt-2 d-block" id="calc-detail"
+                  >*Estimasi termasuk SWDKLLJ & Biaya Administrasi
+                  Pengurusan.</small
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!--ini adalah bagian footer-->
+    <footer class="mt-auto w-100">
+      <div class="bg-dark text-white text-center">
+        <p>© 2026 Biro Jasa STNK Xavier, All Right Reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

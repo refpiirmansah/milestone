@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      <link rel="stylesheet" href="style.css">
+    <title>milestones</title>
+  </head>
+ <body class="bg-light d-flex flex-column min-vh-100">
+ <nav class="navbar">
+    <div class="container navbar-container">
+
+        <a href="home.html" class="brand">
+            <img src="./asset/logo.png" alt="Logo" width="50" height="50">
+            <span>BIRO JASA STNK XAVIER</span>
+        </a>
+
+        <ul class="menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="service.html">Service</a></li>
+            <li><a href="about.html">Tentang Kami</a></li>
+            <li><a href="gallery.html">Galeri</a></li>
+            <li><a href="kontak.html">Kontak Kami</a></li>
+            <li><a href="estimasi.html">Cek Estimasi</a></li>
+            <li><a href="login.html">Login / register</a></li>
+        </ul>
+
+        <div class="tombol">
+            &#9776;
+        </div>
+
+    </div>
+</nav>
+
+    <main class="container my-auto py-4">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-5">
+                    <!-- Card -->
+                    <div class="card-body p-4">
+                        
+                        <!-- Navigasi -->
+                        <ul class="nav nav-pills nav-justified mb-4" id="authTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active fw-semibold" id="pills-login-tab" data-bs-toggle="pill" data-bs-target="#pills-login" type="button" role="tab" aria-controls="pills-login" aria-selected="true">Masuk</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link fw-semibold" id="pills-register-tab" data-bs-toggle="pill" data-bs-target="#pills-register" type="button" role="tab" aria-controls="pills-register" aria-selected="false">Daftar Baru</button>
+                            </li>
+                        </ul>
+
+                        <!-- konten -->
+                        <div class="tab-content" id="authTabsContent">
+
+                            <!-- LOGIN FORM -->
+                            <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
+                                <form id="form-login" onsubmit="handleLoginSubmit(event)">
+                                    <div class="mb-3">
+                                        <label for="login-identifier" class="form-label small fw-semibold">Email / No. WhatsApp</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-light"><i class="fa-regular fa-user text-muted"></i></span>
+                                            <input type="text" class="form-control" id="login-identifier" placeholder="contoh@gmail.com atau 081234567" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <label for="login-password" class="form-label small fw-semibold mb-0">Kata Sandi</label>
+                                            <a href="#" onclick="showToast('Silakan hubungi WhatsApp Admin untuk reset password.', 'info')" class="text-primary text-decoration-none small fw-semibold">Lupa Sandi?</a>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-light"><i class="fa-solid fa-lock text-muted"></i></span>
+                                            <input type="password" class="form-control border-end-0" id="login-password" placeholder="Masukkan kata sandi" required>
+                                            <span class="input-group-text bg-white toggle-password" style="cursor: pointer;" onclick="togglePasswordVisibility('login-password', this)">
+                                                <i class="fa-regular fa-eye text-muted"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-check mb-4">
+                                        <input class="form-check-input" type="checkbox" id="remember-me">
+                                        <label class="form-check-label small text-muted" for="remember-me">
+                                            Ingat saya di perangkat ini
+                                        </label>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary w-100 fw-bold py-2">
+                                        <i class="fa-solid fa-right-to-bracket me-2"></i>Masuk Sekarang
+                                    </button>
+                                </form>
+                            </div>
+
+                            <!-- FORM REGIST-->
+                            <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab">
+                                <form id="form-register" onsubmit="handleRegisterSubmit(event)">
+                                    <div class="mb-3">
+                                        <label for="reg-name" class="form-label small fw-semibold">Nama Lengkap</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-light"><i class="fa-regular fa-id-card text-muted"></i></span>
+                                            <input type="text" class="form-control" id="reg-name" placeholder="Nama sesuai KTP" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="reg-phone" class="form-label small fw-semibold">Nomor WhatsApp</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-light"><i class="fa-brands fa-whatsapp text-muted"></i></span>
+                                            <input type="tel" class="form-control" id="reg-phone" placeholder="087774442349" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="reg-email" class="form-label small fw-semibold">Email</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-light"><i class="fa-regular fa-envelope text-muted"></i></span>
+                                            <input type="email" class="form-control" id="reg-email" placeholder="nama@email.com" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="reg-password" class="form-label small fw-semibold">Kata Sandi Baru</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-light"><i class="fa-solid fa-lock text-muted"></i></span>
+                                            <input type="password" class="form-control border-end-0" id="reg-password" placeholder="Minimal 6 karakter" minlength="6" required>
+                                            <span class="input-group-text bg-white toggle-password" style="cursor: pointer;" onclick="togglePasswordVisibility('reg-password', this)">
+                                                <i class="fa-regular fa-eye text-muted"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary w-100 fw-bold py-2">
+                                        <i class="fa-solid fa-user-plus me-2"></i>Buat Akun Baru
+                                    </button>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+      <footer class="mt-auto">
+     <div class="bg-dark text-white text-center">
+    <p>© 2026 Biro Jasa STNK Xavier, All Right Reserved.</p>
+</div>
+    </footer>
+
+    <!-- Toast Container Notification -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body" id="toastMessage">
+                    Pesan notifikasi
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
